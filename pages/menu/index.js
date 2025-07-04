@@ -1,8 +1,18 @@
+import Card from "@/components/modules/Card"
 import styles from "@/styles/MenuPage.module.css"
 const Menu = ({data}) => {
   return (
     <>
-
+        <div className={styles.container}> 
+            <h2>Menu</h2>
+            <div className={styles.subContainer}>
+                {
+                    data.map(food=>(
+                        <Card key={food.id} {... food}></Card>
+                    ))
+                }
+            </div>
+        </div>
     </>
   )
 }
