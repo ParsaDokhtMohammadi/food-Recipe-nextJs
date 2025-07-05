@@ -1,9 +1,9 @@
 import styles from "@/styles/CategoriesPage.module.css"
 import { useRouter } from "next/router"
-import { useState } from "react"
-
+import { useEffect, useState } from "react"
+import Card from "@/components/modules/Card"
 const Categories = ({ data }) => {
-    console.log(data)
+
     const router = useRouter()
     const [query, setQuery] = useState({ difficulty: "", time: "" })
 
@@ -14,6 +14,12 @@ const Categories = ({ data }) => {
     const searchHandler = () => {
         router.push({ pathname: "/categories", query }) 
     }
+    useEffect(()=>{
+        const {difficulty,time} = router.query
+        if (query.difficulty!==difficulty || query.time!==time){
+            setQuery({difficulty,time})
+        }
+    },[])
 
     return (
         <div className={styles.container}>
@@ -32,6 +38,10 @@ const Categories = ({ data }) => {
                         <option value={"Less"}>Less Than 30 Min</option>
                     </select>
                     <button onClick={searchHandler}>Search</button>
+                </div>
+                <div className={styles.cards}>
+                    {!data.length ? <img src="/images/search.png" alt="search"></img> : data.map(food=>(<Card {...food}></Card>))}
+                    
                 </div>
             </div>
         </div>
