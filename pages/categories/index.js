@@ -40,7 +40,7 @@ const Categories = ({ data }) => {
                     <button onClick={searchHandler}>Search</button>
                 </div>
                 <div className={styles.cards}>
-                    {!data.length ? <img src="/images/search.png" alt="search"></img> : data.map(food=>(<Card {...food}></Card>))}
+                    {!data.length ? <img src="/images/search.png" alt="search"></img> : data.map(food=>(<div key={food.id}><Card {...food}></Card></div>))}
                     
                 </div>
             </div>
@@ -52,7 +52,7 @@ export default Categories
 
 export async function getServerSideProps(context) {
     const { query: { difficulty, time } } = context
-    const res = await fetch("http://localhost:4000/data")
+    const res = await fetch(`${process.env.BASE_URL}/data`)
     const data = await res.json()
 
     const filteredData = data.filter(item => {

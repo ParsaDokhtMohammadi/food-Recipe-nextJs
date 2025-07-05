@@ -61,7 +61,7 @@ const Details = ({ data }) => {
                 <div className={styles.recipe}>
                     <h4>Recipe</h4>
                     {recipe.map((item , index)=>(
-                        <div className={index % 2 ? styles.odd : styles.even}>
+                        <div key={index} className={index % 2 ? styles.odd : styles.even}>
                             <span>{index+1}</span>
                             <p>{item}</p>
                         </div>
@@ -79,7 +79,7 @@ const Details = ({ data }) => {
 export default Details;
 
 export async function getStaticPaths() {
-    const response = await fetch("http://localhost:4000/data");
+    const response = await fetch(`${process.env.BASE_URL}/data`);
     const json = await response.json();
     const data = json.slice(0, 7);
 
@@ -95,19 +95,17 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     const { params } = context;
-    const response = await fetch(`http://localhost:4000/data/${params.id}`);
+    const response = await fetch(`${process.env.BASE_URL}/data/${params.id}`);
     const data = await response.json();
-
-    if (!data || !data.name) {
+    if (!data.name) {
         return {
             notFound: true,
         };
     }
-
     return {
         props: {
             data,
-        },
-        revalidate: 10,
+        }, 
+        revalidate: 60*60,
     };
 }
