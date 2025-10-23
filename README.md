@@ -1,40 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+🍳 Food Recipe App
 
-## Getting Started
+An interactive recipe browsing application built with Next.js and MongoDB.
+Users can explore recipes, filter them by cooking time or difficulty, and view detailed instructions.
+This project was one of my first experiences with Next.js, created to practice and demonstrate the use of SSG, SSR, and ISR rendering techniques.
 
-First, run the development server:
+🧩 Features
 
-```bash
+🍔 Recipe Browser – Browse a list of recipes with images and short summaries
+
+⏱ Filter by Cooking Time – Quickly find recipes that fit your available time
+
+💪 Filter by Difficulty – Choose between easy, medium, or hard recipes
+
+📄 Detailed Recipe Pages – Each recipe includes ingredients, steps, and prep details
+
+⚡ Rendering Techniques – Implemented Static Site Generation (SSG), Server-Side Rendering (SSR), and Incremental Static Regeneration (ISR) for optimized performance and SEO
+
+💾 MongoDB Integration – Recipe data stored and fetched dynamically from a MongoDB database
+
+🛠️ Tech Stack
+
+Frontend: Next.js, React, TailwindCSS
+Backend: MongoDB, Next.js API Routes
+Other: SSG / SSR / ISR
+
+📦 Installation & Setup
+# Clone the repository
+git clone https://github.com/ParsaDokhtMohammadi/food-Recipe-nextJs
+
+# Navigate into the project folder
+cd food-Recipe-nextJs
+
+# Install dependencies
+npm install
+
+# Create a .env.local file and add your MongoDB connection string
+MONGODB_URI=your_connection_string_here
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Then open http://localhost:3000
+ in your browser 🚀
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+🎯 Project Purpose
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+This project was developed to practice real-world Next.js features, including dynamic routing, data fetching, and advanced rendering strategies (SSG, SSR, ISR).
+It helped me gain a deeper understanding of how Next.js optimizes performance and improves user experience through different rendering modes.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🚀 Future Improvements
 
-## Learn More
+Add recipe creation (admin or user submission)
 
-To learn more about Next.js, take a look at the following resources:
+Include recipe images upload support
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+Improve filter UI with multi-select and sorting options
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Add search functionality
